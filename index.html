@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Santosh Printing Press - Sudna, Medininagar</title>
+  <style>
+    :root{
+      --bg:#f6f7fb;
+      --card:#ffffff;
+      --accent:#1f6feb;
+      --muted:#5a6470;
+      --gold:#d4a017;
+      --border:linear-gradient(135deg, rgba(31,111,235,0.12), rgba(212,160,23,0.08));
+      --radius:18px;
+      --maxw:900px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: radial-gradient(circle at 10% 10%, #ffffff 0%, #f6f7fb 40%, #eef2f7 100%);
+      color:#222;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:40px 16px;
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+      min-height:100vh;
+    }
+
+    .card{
+      width:100%;
+      max-width:var(--maxw);
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow: 0 10px 30px rgba(25,40,60,0.08);
+      padding:26px;
+      border:1px solid rgba(20,30,40,0.04);
+      position:relative;
+      overflow:hidden;
+    }
+
+    /* decorative border */
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      padding:2px;
+      border-radius:calc(var(--radius) + 2px);
+      background:var(--border);
+      pointer-events:none;
+      mix-blend-mode:normal;
+    }
+
+    .header{
+      display:flex;
+      gap:16px;
+      align-items:center;
+    }
+    .logo{
+      width:84px;
+      height:84px;
+      border-radius:12px;
+      background:linear-gradient(135deg,#fff,#f3f6ff);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      color:var(--accent);
+      font-size:22px;
+      border:1px solid rgba(31,111,235,0.08);
+      flex-shrink:0;
+    }
+    .title{
+      display:flex;
+      flex-direction:column;
+    }
+    h1{
+      margin:0;
+      font-size:22px;
+      color:#111;
+      letter-spacing:0.2px;
+    }
+    .tag{
+      font-size:14px;
+      color:var(--muted);
+      margin-top:6px;
+    }
+
+    .main{
+      display:grid;
+      grid-template-columns: 1fr 320px;
+      gap:22px;
+      margin-top:20px;
+    }
+
+    /* left content */
+    .left{
+      padding-right:8px;
+    }
+    .section{
+      background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4));
+      border-radius:12px;
+      padding:16px;
+      margin-bottom:14px;
+      box-shadow:0 4px 14px rgba(15,20,50,0.02);
+      border:1px solid rgba(0,0,0,0.02);
+    }
+    .section h3{
+      margin:0;
+      font-size:16px;
+      color:#111;
+    }
+    .services{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:12px;
+    }
+    .chip{
+      padding:8px 12px;
+      background:rgba(31,111,235,0.09);
+      color:var(--accent);
+      border-radius:999px;
+      font-size:13px;
+      border:1px solid rgba(31,111,235,0.06);
+    }
+
+    .address, .contacts {
+      margin-top:10px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.5;
+    }
+
+    /* right sidebar */
+    .right{
+      position:relative;
+    }
+    .box{
+      border-radius:12px;
+      padding:18px;
+      background:linear-gradient(180deg,#ffffff,#f8fbff);
+      box-shadow:0 8px 20px rgba(20,30,60,0.04);
+      border:1px solid rgba(0,0,0,0.03);
+    }
+    .call-btn{
+      display:flex;
+      gap:10px;
+      margin-top:12px;
+      flex-direction:column;
+    }
+    .call-btn a{
+      display:flex;
+      text-decoration:none;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:12px;
+      border-radius:10px;
+      font-weight:700;
+      color:#fff;
+      background:linear-gradient(90deg,#ff7a00,#ffb347);
+      box-shadow:0 8px 18px rgba(255,120,0,0.18);
+      border:none;
+      font-size:15px;
+    }
+    .whatsapp{
+      background:linear-gradient(90deg,#25D366,#32e58a);
+      box-shadow:0 8px 18px rgba(37,211,102,0.14);
+    }
+    .small{
+      font-size:13px;
+      color:var(--muted);
+      margin-top:8px;
+    }
+
+    .map{
+      margin-top:12px;
+      border-radius:8px;
+      overflow:hidden;
+      border:1px solid rgba(0,0,0,0.04);
+    }
+    .map iframe{width:100%; height:180px; border:0; display:block}
+
+    /* footer actions */
+    .actions{
+      display:flex;
+      gap:10px;
+      margin-top:12px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .action-btn{
+      background:transparent;
+      border:1px solid rgba(0,0,0,0.06);
+      padding:8px 12px;
+      border-radius:8px;
+      color:var(--muted);
+      cursor:pointer;
+      font-weight:600;
+      font-size:13px;
+    }
+
+    /* responsive */
+    @media (max-width:880px){
+      .main{grid-template-columns:1fr}
+      .right{order:-1}
+      .header{gap:12px}
+      .logo{width:72px;height:72px}
+    }
+  </style>
+</head>
+<body>
+  <div class="card" role="main">
+    <div class="header">
+      <div class="logo" aria-hidden="true">SPP</div>
+      <div class="title">
+        <h1>Santosh Printing Press</h1>
+        <div class="tag">Quality printing • Fast service • Reasonable price</div>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="left">
+        <div class="section">
+          <h3>What we do</h3>
+          <div class="services" aria-hidden="true">
+            <div class="chip">Visiting Cards</div>
+            <div class="chip">Flyers & Brochures</div>
+            <div class="chip">Banners & Flex</div>
+            <div class="chip">Stickers</div>
+            <div class="chip">ID Cards</div>
+            <div class="chip">Digital Prints</div>
+          </div>
+
+          <div class="address">
+            <strong>Address:</strong><br>
+            Aghor asram road (in front of New Vision Public School), Sudna, Medininagar, JHARKHAND
+          </div>
+
+          <div class="contacts" style="margin-top:12px">
+            <strong>Contact for details:</strong><br>
+            <div style="margin-top:6px">📞 <strong>9504024611</strong></div>
+            <div style="margin-top:6px">📞 <strong>8579076744</strong></div>
+          </div>
+
+          <div class="actions">
+            <button class="action-btn" onclick="window.print()">Print Ad</button>
+            <button class="action-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact Info</button>
+          </div>
+        </div>
+
+        <div class="section">
+          <h3>Why choose us?</h3>
+          <ul style="margin:10px 0 0 18px; color:var(--muted); line-height:1.6;">
+            <li>Fast turnaround — same day options available</li>
+            <li>High-quality color prints</li>
+            <li>Custom designs on request</li>
+            <li>Bulk order discounts</li>
+          </ul>
+        </div>
+      </div>
+
+      <aside class="right">
+        <div class="box">
+          <h3>Get in touch</h3>
+          <div class="small">Call or WhatsApp for quotes & design help</div>
+
+          <div class="call-btn" style="margin-top:12px">
+            <a href="tel:9504024611">📞 Call 9504024611</a>
+            <a href="tel:8579076744" style="background:linear-gradient(90deg,#667eea,#764ba2); box-shadow:0 8px 18px rgba(102,126,234,0.12)">📞 Call 8579076744</a>
+            <a class="whatsapp" href="https://wa.me/919504024611" target="_blank" rel="noopener">💬 WhatsApp 9504024611</a>
+          </div>
+
+          <div id="contact" class="small" style="margin-top:12px">
+            <strong>Open:</strong> Mon–Sat, 9:00 AM – 7:00 PM<br>
+            <strong>Near:</strong> New Vision Public School (Aghor asram road), Sudna
+          </div>
+
+          <div class="map" aria-hidden="true">
+            <!-- Optional: replace the src with a proper Google Maps embed link for exact pin -->
+            <iframe src="https://www.google.com/maps?q=Aghor+asram+road+New+Vision+Public+School+Sudna+Medininagar+Jharkhand&output=embed"></iframe>
+          </div>
+
+        </div>
+      </aside>
+    </div>
+
+    <div style="margin-top:18px; text-align:center; color:rgba(0,0,0,0.5); font-size:13px;">
+      © Santosh Printing Press — Aghor asram road, Sudna • Call: 9504024611 / 8579076744
+    </div>
+  </div>
+</body>
+</html>
